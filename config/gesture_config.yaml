@@ -1,0 +1,24 @@
+# Gesture Recognition Configuration
+
+# Camera settings
+camera:
+  width: 640
+  height: 480
+  fps: 30
+
+# MediaPipe hands settings
+hand_detection:
+  max_num_hands: 1
+  min_detection_confidence: 0.7
+  min_tracking_confidence: 0.5
+
+# Gesture recognition settings
+gestures:
+  confidence_threshold: 0.8
+  movement_threshold: 0.1
+
+# Robot control settings
+robot:
+  max_linear_velocity: 0.5  # m/s
+  max_angular_velocity: 1.0  # rad/s
+  control_rate: 30  # Hz

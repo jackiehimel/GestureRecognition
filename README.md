@@ -1,3 +1,86 @@
+# Surgical Gesture Control
+
+A ROS2-based system for sterile surgical robot control using hand gestures.
+
+## Overview
+
+This project provides real-time gesture recognition for surgical robot control using MediaPipe Hands. The system demonstrates real-time gesture recognition and robot control visualization using RViz2.
+
+## Prerequisites
+
+- ROS 2 Humble or later
+- Python 3.10 or later
+- OpenCV and MediaPipe
+- A webcam
+
+## Installation
+
+1. Install ROS 2 dependencies:
+```bash
+sudo apt-get update
+sudo apt-get install ros-humble-desktop
+```
+
+2. Install Python dependencies:
+```bash
+pip install opencv-python mediapipe numpy
+```
+
+3. Build the package:
+```bash
+cd ~/GestureRecognition
+colcon build
+source install/setup.bash
+```
+
+## Running the System
+
+Launch the complete system using:
+```bash
+ros2 launch surgical_gesture_control gesture_control.launch.py
+```
+
+This will start:
+- Vision Node (camera input and hand tracking)
+- Gesture Classifier Node (gesture recognition)
+- Robot Node (visualization in RViz2)
+- RViz2 with our custom configuration
+
+## System Components
+
+### Vision Node
+Handles camera input and processes the video feed using MediaPipe Hands for real-time 3D hand landmark detection.
+
+### Gesture Classifier Node
+Analyzes hand landmark configurations to identify control gestures:
+- NEUTRAL: Default pose
+- GRASP: Pinching motion
+- RELEASE: Opening hand
+- MOVE_TO: Pointing gesture
+- EMERGENCY_STOP: Open palm
+
+### Robot Node
+Provides visualization of the robot state in RViz2 and handles gesture-to-control mapping.
+
+## Development
+
+The system uses a modular ROS2 architecture for easy extension and modification. Key features:
+- Kalman filtering for smooth motion
+- Temporal gesture filtering for stability
+- Real-time visualization
+- Modular node structure
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
 
 **Aim**: leveraging readily available hardware and established frameworks such as MediaPipe Hands, this project explores an accessible approach to sterile surgical robot control. This system will demonstrate real-time gesture recognition and robot control visualization. We plan to initially validate the approach using a virtual robot in Rviz2
 

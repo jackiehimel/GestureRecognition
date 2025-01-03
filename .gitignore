@@ -1,3 +1,4 @@
+# Python
 __pycache__/
 *.py[cod]
 *$py.class
@@ -18,4 +19,27 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+
+# ROS 2
+install/
+log/
+.colcon_cd_root
+COLCON_IGNORE
+*.launch.log
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
 .DS_Store
+Thumbs.db
+
+# Build artifacts
+*.o
+*.obj
+*.exe
+*.dll
+*.dylib
